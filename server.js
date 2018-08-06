@@ -2,18 +2,18 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Task = require('./api/models/todoListModel'),
+  Diagnosis = require('./api/models/diagnosisModel'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb');
+mongoose.connect('mongodb://uploadApp:upload1234@ds131621.mlab.com:31621/uploadapp');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/todoListRoutes');
+var routes = require('./api/routes/diagnosisRoutes');
 routes(app);
 
 app.use(function(req, res) {
@@ -22,4 +22,4 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('Diagnosis RESTful API server started on: ' + port);
