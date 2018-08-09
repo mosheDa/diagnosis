@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require ('axios'); 
-const CLOUDBINARY_API_ENDPOINT = 'https://211811477677314:-Ef3mMlkcGE3tE40t-FOX4LVqbw@api.cloudinary.com/v1_1/dtvoiy5lg/resources/video'
+const CLOUDBINARY_API_ENDPOINT = 'https://211811477677314:-Ef3mMlkcGE3tE40t-FOX4LVqbw@api.cloudinary.com/v1_1/dtvoiy5lg/resources/video/?max_results=500'
 
 exports.list_all_videos = function(req, res) {
     axios.get(CLOUDBINARY_API_ENDPOINT)
