@@ -11,6 +11,13 @@ exports.list_all_diagnosis = function(req, res) {
   });
 };
 
+exports.list_all_users = function(req, res) {
+  Diagnosis.find({}, function(err, diagnosis) {
+    if (err)
+      res.send(err);    
+    res.send(diagnosis.map(d=> d.userName));
+  });
+};
 
 exports.create_a_diagnosis = function(req, res) {
   var new_diagnosis = new Diagnosis(req.body);
@@ -30,6 +37,8 @@ exports.read_a_diagnosis = function(req, res) {
 };
 
 exports.update_a_diagnosis = function(req, res) {
+  delete req.body.userName;
+  
   Diagnosis.findOneAndUpdate({_id:req.params.diagnosisId}, req.body, {new: true}, function(err, diagnosis) {
     if (err)
       res.send(err);

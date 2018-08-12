@@ -9,6 +9,9 @@ module.exports = function(app) {
 		.get(diagnosisList.list_all_diagnosis)
 		.post(diagnosisList.create_a_diagnosis);
 
+	app.route('/users')
+		.get(diagnosisList.list_all_users)
+
 	app.route('/diagnosis/:diagnosisId')
 		.get(diagnosisList.read_a_diagnosis)
 		.put(diagnosisList.update_a_diagnosis)
