@@ -20,4 +20,8 @@ module.exports = function(app) {
 	// videos Routes
 	app.route('/videos')
 		.get(videos.list_all_videos)
+		
+	app.route('/videos/:diagnosisId')
+		.get(videos.get_videos_by_username)
+		
 };
