@@ -21,7 +21,7 @@ module.exports = function(app) {
 	app.route('/videos')
 		.get(videos.list_all_videos)
 		
-	app.route('/videos/:diagnosisId')
+	app.route('/videos/:username')
 		.get(videos.get_videos_by_username)
 		
 };
