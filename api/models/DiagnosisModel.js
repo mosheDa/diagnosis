@@ -11,8 +11,7 @@ var DiagnosisSchema = new Schema({
     unique : true
   },
   nameOfChild: {
-    type: String,
-    required: true
+    type: String
   },
   expertChecked: {
     type: String,
