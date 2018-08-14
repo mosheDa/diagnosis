@@ -12,6 +12,9 @@ module.exports = function(app) {
 	app.route('/users')
 		.get(diagnosisList.list_all_users)
 
+	app.route('/users/:username')
+		.get(diagnosisList.read_a_diagnosis_by_name)
+
 	app.route('/diagnosis/:diagnosisId')
 		.get(diagnosisList.read_a_diagnosis)
 		.put(diagnosisList.update_a_diagnosis)

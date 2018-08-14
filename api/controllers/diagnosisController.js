@@ -36,6 +36,14 @@ exports.read_a_diagnosis = function(req, res) {
   });
 };
 
+exports.read_a_diagnosis_by_name = function(req, res) {
+  Diagnosis.findOne({userName: req.params.username}, function(err, diagnosis) {
+    if (err)
+      res.send(err);
+    res.json(diagnosis);
+  });
+};
+
 exports.update_a_diagnosis = function(req, res) {
   delete req.body.userName;
   
