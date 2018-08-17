@@ -24,6 +24,7 @@ exports.list_all_users = function(req, res) {
     });
     }
 }, function(err, results) {
+    if(err) return res.send(err);
     const richDiagnosis = results.diagnosis.map(diagnosis=>{
       const userVideos = results.usersVideos.filter((video) => {
         return video.context.custom.username == diagnosis.userName;
