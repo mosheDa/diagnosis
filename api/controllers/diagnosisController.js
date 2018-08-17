@@ -14,8 +14,10 @@ exports.list_all_diagnosis = function(req, res) {
 };
 
 exports.list_all_users = function(req, res) {
-  async.series({
-    usersVideos: getVideos,
+  async.parallel({
+    usersVideos:(callback)=>{
+      getVideos(callback)
+    },
     diagnosis: function(callback){
       Diagnosis.find({}).lean().exec(function (err, docs) {
         if(err) return callback(err);
