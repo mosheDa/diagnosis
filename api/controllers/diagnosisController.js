@@ -32,7 +32,9 @@ exports.list_all_users = function(req, res) {
         return video.context.custom.username == diagnosis.userName;
       })
       console.log(diagnosis.userName, userVideos)
-      const userVideoImage = userVideos[0].public_id;
+
+      const defaultImage = "https://www.ralphlauren.com/on/demandware.static/-/Sites-RalphLauren_US-Library/default/dw8159c7e0/images/baby/feature/babys-first-test/20160803_baby_feat_c01.jpeg";
+      const userVideoImage =  userVideos.length ? userVideos[0].public_id : defaultImage;
       const videosCount = userVideos.length;
 
       return {...diagnosis, videosCount, userVideoImage}
