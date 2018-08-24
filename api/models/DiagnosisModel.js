@@ -25,6 +25,9 @@ var DiagnosisSchema = new Schema({
   result: {
     text: String,
     date: Date
+  },
+  rating: {
+    type: Number
   }
 });
 
